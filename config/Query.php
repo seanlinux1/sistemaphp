@@ -5,7 +5,8 @@ class Query extends Conexion{
         $this->pdo = new Conexion();
         $this->con = $this->pdo->conectar();
     }
-    public function select($sql){
+    public function select($sql)
+    {
         $result = $this->con->prepare($sql);
         $result->execute();
         return $result->fetch(PDO::FETCH_ASSOC);
@@ -13,7 +14,7 @@ class Query extends Conexion{
     public function selectAll($sql){
         $result = $this->con->prepare($sql);
         $result->execute();
-        return $result->fetch(PDO::FETCH_ASSOC);
+        return $result->fetchAll(PDO::FETCH_ASSOC);
     }
     public function insertar($sql, $array){
         $result = $this->con->prepare($sql);
